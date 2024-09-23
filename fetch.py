@@ -1,11 +1,16 @@
 import tkinter as tk
 import random
 from Results import mostrar_resultados
+
 # Funciones globales y variables
-time_left = 60  # Tiempo en segundos para la cuenta atrás
+
 def play_game():
+    global selected_cards, matches_found, cards, buttons
+    time_left = 120  # Tiempo en segundos para la cuenta atrás
+
+
     def flip_card(i, j):
-        global selected_cards, matches_found, cards, buttons
+
 
         button = buttons[i][j]
         if button['text'] == '' and len(selected_cards) < 2:
@@ -50,23 +55,31 @@ def play_game():
     selected_cards = []
     matches_found = 0
 
-    # ___________________________________________________________________________________________________
-    def disable_all_buttons():
-        for row in buttons:
-            for button in row:
-                button.config(state='disabled')
 
+
+
+
+    # ___________________________________________________________________________________________________
     def update_timer():
         global time_left
         if time_left > 0:
             time_left -= 1
-            timer_label.config(text=f"Tiempo restante: {time_left}s")
+            contadorr.config(text=f"Tiempo restante: {time_left}s")
             root.after(1000, update_timer)
         else:
             print("¡Tiempo agotado!")
             disable_all_buttons()  # Llamada a una función para deshabilitar botones
 
+    def disable_all_buttons():
+        for row in buttons:
+            for button in row:
+                button.config(state='disabled')
+
     # ____________________________________________________________________________________________________
+
+    # frame de tiempo
+    contadorr = tk.Label(root, text=f"Tiempo restante: {time_left}s", font=("Helvetica", 14))
+    contadorr.pack(fill=tk.BOTH)
 
     # Crear un frame para centrar los botones
     frame = tk.Frame(root)
@@ -74,16 +87,10 @@ def play_game():
     frame.grid_rowconfigure(0, weight=1)
     frame.grid_columnconfigure(0, weight=1)
 
-    timer_label = root.Label(root, text=f"Tiempo restante: {time_left}s", font=("Helvetica", 14))
-    timer_label.grid(row=4, column=0, columnspan=4, pady=10)  # Ubicación debajo de los botones
-
-    update_timer()  # Iniciar el temporizador
-
     for i in range(4):
         row = []
         for j in range(4):
-            button = tk.Button(frame, text='', bg="gray", fg="white", font=("Arial", 10, "bold"), width=10, height=5,
-                               command=lambda i=i, j=j: flip_card(i, j))
+            button = tk.Button(frame, text='', bg="gray", fg="white", font=("Arial", 10, "bold"), width=10, height=5, command=lambda i=i, j=j: flip_card(i, j))
             button.grid(row=i, column=j, padx=5, pady=5, sticky="nsew")  # Centramos usando sticky
             row.append(button)
         buttons.append(row)
@@ -95,5 +102,5 @@ def play_game():
 
     # Iniciar el bucle principal de la interfaz
     root.mainloop()
-
-
+    update_timer()  # Iniciar el temporizador
+play_game()
