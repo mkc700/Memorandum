@@ -3,10 +3,10 @@ import random
 from Results import mostrar_resultados
 
 # Funciones globales y variables
-
+time_left = 120  # Tiempo en segundos para la cuenta atrás
 def play_game():
     global selected_cards, matches_found, cards, buttons
-    time_left = 120  # Tiempo en segundos para la cuenta atrás
+
 
 
     def flip_card(i, j):
@@ -28,8 +28,8 @@ def play_game():
             matches_found += 1
             if matches_found == len(cards) // 2:
                 print("¡Has encontrado todos los pares!")
-                # root.destroy()
-            # mostrar_resultados()
+                root.after(3000, root.destroy)
+                mostrar_resultados(False)
 
         else:
             # Si no es un par, ocultar las cartas de nuevo
@@ -60,6 +60,11 @@ def play_game():
 
 
     # ___________________________________________________________________________________________________
+    def disable_all_buttons():
+        for row in buttons:
+            for button in row:
+                button.config(state='disabled')
+
     def update_timer():
         global time_left
         if time_left > 0:
@@ -67,13 +72,14 @@ def play_game():
             contadorr.config(text=f"Tiempo restante: {time_left}s")
             root.after(1000, update_timer)
         else:
+            root.after(3000, root.destroy)
+            mostrar_resultados(True)
             print("¡Tiempo agotado!")
             disable_all_buttons()  # Llamada a una función para deshabilitar botones
 
-    def disable_all_buttons():
-        for row in buttons:
-            for button in row:
-                button.config(state='disabled')
+
+
+
 
     # ____________________________________________________________________________________________________
 
@@ -99,8 +105,8 @@ def play_game():
     for i in range(4):
         frame.grid_rowconfigure(i, weight=1)
         frame.grid_columnconfigure(i, weight=1)
-
+    update_timer()  # Iniciar el temporizador
     # Iniciar el bucle principal de la interfaz
     root.mainloop()
-    update_timer()  # Iniciar el temporizador
+
 play_game()
