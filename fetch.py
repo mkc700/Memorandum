@@ -1,9 +1,12 @@
 import tkinter as tk
 import random
+from shutil import which
+
 from Results import mostrar_resultados
+import os
 
 # Funciones globales y variables
-time_left = 120  # Tiempo en segundos para la cuenta atrás
+time_left = 120 # Tiempo en segundos para la cuenta atrás
 def play_game():
     global selected_cards, matches_found, cards, buttons
 
@@ -28,8 +31,8 @@ def play_game():
             matches_found += 1
             if matches_found == len(cards) // 2:
                 print("¡Has encontrado todos los pares!")
-                root.after(3000, root.destroy)
-                mostrar_resultados(False)
+                root.after(2000, lambda: [root.destroy(), mostrar_resultados(False,time_left)])
+
 
         else:
             # Si no es un par, ocultar las cartas de nuevo
@@ -72,8 +75,8 @@ def play_game():
             contadorr.config(text=f"Tiempo restante: {time_left}s")
             root.after(1000, update_timer)
         else:
-            root.after(3000, root.destroy)
-            mostrar_resultados(True)
+            root.after(2000, lambda: [root.destroy(), mostrar_resultados(True,time_left)])
+
             print("¡Tiempo agotado!")
             disable_all_buttons()  # Llamada a una función para deshabilitar botones
 
@@ -92,6 +95,8 @@ def play_game():
     frame.pack(expand=True)  # Expande el frame para ocupar todo el espacio disponible
     frame.grid_rowconfigure(0, weight=1)
     frame.grid_columnconfigure(0, weight=1)
+
+
 
     for i in range(4):
         row = []

@@ -1,25 +1,30 @@
 import tkinter
 import pygame
+
 #
 #ventana de resultados
 
 
-def mostrar_resultados():
+def mostrar_resultados(resultado,time):
     # Global variables
     title_r = ""
     score_r = 0  # puntaje
-    principal_result = False  # informacion de si gano o perdio
+    principal_result = resultado  # informacion de si gano o perdio
 
-    if principal_result == False:
+    if principal_result == True:
         title_r = "perdiste :("
+        score_r = 0
     else:
         title_r = "Ganaste!"
+        score_r = 100
 
     ventana = tkinter.Tk()
     # Bloquea el redimensionamiento en ambos ejes
     ventana.resizable(False, False)
     # define la resolucion
     ventana.geometry("800x600")
+    #evaluar tiempo
+    print("tu tiempo fue: "+str(time))
 
     # creando un frame para centrar mi texto
     frame = tkinter.Frame(ventana)
@@ -34,10 +39,11 @@ def mostrar_resultados():
 
     etiqueta2.pack(side=tkinter.BOTTOM)
     etiqueta.pack(side=tkinter.BOTTOM)
+    ventana.after(3000, ventana.destroy)
 
     # ejecutar ventana
     ventana.mainloop()
-    ventana.after(3000)
+
 
 
 

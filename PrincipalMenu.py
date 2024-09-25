@@ -1,11 +1,12 @@
 import tkinter
 import pygame
-
+#from WelcomWindow import iniciar_ventana
 from Tutorial import Crear_ventana_tutorial
 
-ventanam = tkinter.Tk() #ventana de menu principal
 
+#iniciar_ventana()
 def Crear_ventana_menu():
+    ventanam = tkinter.Tk()  # ventana de menu principal
     #
     # ventana de bienvenida
     #
@@ -25,7 +26,7 @@ def Crear_ventana_menu():
     # _________________________________________________________
 
     etiqueta = tkinter.Label(inner_frame, text="MEMORANDUM", font=("", 24))
-    etiqueta2 = tkinter.Button(inner_frame, text="Start", width=15, height=1, bg="gray", fg="white",command=lambda: abrir_ventana)
+    etiqueta2 = tkinter.Button(inner_frame, text="Start", width=15, height=1, bg="gray", fg="white",command=lambda: abrir_ventana(ventanam))
 
     etiqueta2.pack(side=tkinter.BOTTOM, pady=15)
     etiqueta.pack(side=tkinter.BOTTOM)
@@ -33,7 +34,9 @@ def Crear_ventana_menu():
     # ejecutar ventana
     ventanam.mainloop()
 
-def abrir_ventana():
-    ventanam.destroy()
+
+def abrir_ventana(ventana):
+    ventana.destroy()
     Crear_ventana_tutorial()
+
 

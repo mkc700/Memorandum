@@ -7,6 +7,7 @@ def iniciar_ventana():
     # ventana de bienvenida
     #
     ventana = tkinter.Tk()
+    ventana.title("desarrollo")
     # Bloquea el redimensionamiento en ambos ejes
     ventana.resizable(False, False)
     # define la resolucion
@@ -26,14 +27,21 @@ def iniciar_ventana():
     etiqueta.pack(side=tkinter.BOTTOM)
     etiqueta2.pack(side=tkinter.BOTTOM)
 
+    # Cerrar la ventana después de 3 segundos (3000 milisegundos)
+
+    ventana.after(2000, ventana.destroy)
+
+    #Todavia no agrego el que habra la ventana del menu
+    # ventana.after(2000, lambda: [ventana.destroy])}
+    # Crear_ventana_menu()
+
     # ejecutar ventana
     ventana.mainloop()
 
-  # Cerrar la ventana después de 3 segundos (3000 milisegundos)
-    ventana.after(2000, lambda: [ventana.destroy(), Crear_ventana_menu()])
+    Crear_ventana_menu()
 
 
-iniciar_ventana()
+
 
 
 
