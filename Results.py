@@ -1,6 +1,6 @@
 import tkinter
 import pygame
-
+from tkinter import messagebox
 #
 #ventana de resultados
 
@@ -9,6 +9,7 @@ def mostrar_resultados(resultado,time):
     # Global variables
     title_r = ""
     score_r = 0  # puntaje
+    comment = ""
     principal_result = resultado  # informacion de si gano o perdio
 
     if principal_result == True:
@@ -16,7 +17,7 @@ def mostrar_resultados(resultado,time):
         score_r = 0
     else:
         title_r = "Ganaste!"
-        score_r = 100
+        score_r = 1000
 
     ventana = tkinter.Tk()
     # Bloquea el redimensionamiento en ambos ejes
@@ -24,7 +25,20 @@ def mostrar_resultados(resultado,time):
     # define la resolucion
     ventana.geometry("800x600")
     #evaluar tiempo
+
     print("tu tiempo fue: "+str(time))
+    if time > 90:
+        score_r = score_r + 2000
+        comment = "Apoco si mi todo tieso?"
+    if time > 80:
+        score_r = score_r + 1000
+        comment= "Eres un tryhard!"
+    if time > 50 and time < 75:
+        score_r = score_r + 800
+        comment = "Nada mal mi amigo :)"
+    if time > 30 and time < 50:
+        score_r = score_r + 100
+        comment = "De verdad se te dificulto tanto?"
 
     # creando un frame para centrar mi texto
     frame = tkinter.Frame(ventana)
@@ -36,9 +50,11 @@ def mostrar_resultados(resultado,time):
 
     etiqueta = tkinter.Label(inner_frame, text=title_r, font=("", 24))
     etiqueta2 = tkinter.Label(inner_frame, text="Tu puntaje es: " + str(score_r))
+    etiqueta3 = tkinter.Label(inner_frame, text=comment)
 
     etiqueta2.pack(side=tkinter.BOTTOM)
     etiqueta.pack(side=tkinter.BOTTOM)
+    etiqueta3.pack(side=tkinter.BOTTOM)
     ventana.after(3000, ventana.destroy)
 
     # ejecutar ventana

@@ -6,7 +6,7 @@ from Results import mostrar_resultados
 import os
 
 # Funciones globales y variables
-time_left = 120 # Tiempo en segundos para la cuenta atrás
+time_left = 110 # Tiempo en segundos para la cuenta atrás
 def play_game():
     global selected_cards, matches_found, cards, buttons
 
@@ -21,7 +21,7 @@ def play_game():
             selected_cards.append((i, j))
 
             if len(selected_cards) == 2:
-                root.after(1000, check_match)
+                root.after(500, check_match)
 
     def check_match():
         global selected_cards, matches_found, cards, buttons
@@ -114,4 +114,4 @@ def play_game():
     # Iniciar el bucle principal de la interfaz
     root.mainloop()
 
-play_game()
+#play_game()
