@@ -1,13 +1,19 @@
 import tkinter
+import tkinter as tk
 import pygame
+
 from PrincipalMenu import Crear_ventana_menu
 
 def iniciar_ventana():
+    # fondo pantalla
+
+
+
     #
     # ventana de bienvenida
     #
     ventana = tkinter.Tk()
-    ventana.title("desarrollo")
+
     # Bloquea el redimensionamiento en ambos ejes
     ventana.resizable(False, False)
     # define la resolucion
@@ -21,11 +27,15 @@ def iniciar_ventana():
     inner_frame.pack(expand=True)
     # _________________________________________________________
 
-    etiqueta = tkinter.Label(inner_frame, text="MEMORANDUM", font=("", 24))
+    etiqueta = tkinter.Label(inner_frame, text="MEMORANDUM", font=("", 30), )
     etiqueta2 = tkinter.Label(inner_frame, text="Bienvenido a")
 
     etiqueta.pack(side=tkinter.BOTTOM)
     etiqueta2.pack(side=tkinter.BOTTOM)
+
+    ventana.title("MEMORANDUM")
+    icono = tk.PhotoImage(file="recurs/logo.png")
+    ventana.iconphoto(True, icono)
 
     # Cerrar la ventana después de 3 segundos (3000 milisegundos)
 

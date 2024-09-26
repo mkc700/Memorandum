@@ -5,13 +5,15 @@ from fetch import play_game
 
 def Crear_ventana_tutorial():
     ventanat = tkinter.Tk()
+    ventanat.title("MEMORANDUM")
+
     # Bloquea el redimensionamiento en ambos ejes
     ventanat.resizable(False, False)
     # define la resolucion
     ventanat.geometry("800x600")
 
-    etiqueta = tkinter.Label(ventanat, text="tutorial", font=("", 24))
-    etiqueta2 = tkinter.Button(ventanat, text="Skip", width=15, height=1, bg="gray", fg="white", command=lambda: contar_clics(ventanat))
+    etiqueta = tkinter.Label(ventanat, text="Tutorial", font=("", 24))
+    etiqueta2 = tkinter.Button(ventanat, text="Skip", width=18, height=2, bg="#E0E0C8", fg="black",relief="groove",border=2, command=lambda: contar_clics(ventanat))
 
     etiqueta.pack(side=tkinter.TOP)
     etiqueta2.pack(side=tkinter.BOTTOM, padx=5, pady=5)

@@ -44,7 +44,8 @@ def play_game():
 
     # Inicialización del juego
     root = tk.Tk()
-    root.title("Memorama")
+    root.title("MEMORANDUM")
+
     # Bloquea el redimensionamiento en ambos ejes
     root.resizable(False, False)
     # define la resolucion
@@ -101,7 +102,7 @@ def play_game():
     for i in range(4):
         row = []
         for j in range(4):
-            button = tk.Button(frame, text='', bg="gray", fg="white", font=("Arial", 10, "bold"), width=10, height=5, command=lambda i=i, j=j: flip_card(i, j))
+            button = tk.Button(frame, text='', bg="#FEFADF", fg="black", font=("Helvetica", 10, "bold"),relief="groove",border=2, width=10, height=5, command=lambda i=i, j=j: flip_card(i, j))
             button.grid(row=i, column=j, padx=5, pady=5, sticky="nsew")  # Centramos usando sticky
             row.append(button)
         buttons.append(row)

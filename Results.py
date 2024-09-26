@@ -1,6 +1,9 @@
 import tkinter
 import pygame
 from tkinter import messagebox
+
+
+
 #
 #ventana de resultados
 
@@ -20,6 +23,8 @@ def mostrar_resultados(resultado,time):
         score_r = 1000
 
     ventana = tkinter.Tk()
+    ventana.title("MEMORANDUM")
+
     # Bloquea el redimensionamiento en ambos ejes
     ventana.resizable(False, False)
     # define la resolucion
@@ -48,18 +53,15 @@ def mostrar_resultados(resultado,time):
     inner_frame.pack(expand=True)
     # _________________________________________________________
 
-    etiqueta = tkinter.Label(inner_frame, text=title_r, font=("", 24))
+    etiqueta = tkinter.Label(inner_frame, text=title_r, font=("", 32))
     etiqueta2 = tkinter.Label(inner_frame, text="Tu puntaje es: " + str(score_r))
     etiqueta3 = tkinter.Label(inner_frame, text=comment)
 
     etiqueta2.pack(side=tkinter.BOTTOM)
     etiqueta.pack(side=tkinter.BOTTOM)
     etiqueta3.pack(side=tkinter.BOTTOM)
-    ventana.after(3000, ventana.destroy)
+    ventana.after(8000, ventana.destroy)
 
     # ejecutar ventana
     ventana.mainloop()
-
-
-
 
