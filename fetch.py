@@ -6,7 +6,7 @@ from Results import mostrar_resultados
 import os
 
 # Funciones globales y variables
-time_left = 110 # Tiempo en segundos para la cuenta atrás
+time_left = 100 # Tiempo en segundos para la cuenta atrás
 def play_game():
     global selected_cards, matches_found, cards, buttons
 
@@ -31,7 +31,7 @@ def play_game():
             matches_found += 1
             if matches_found == len(cards) // 2:
                 print("¡Has encontrado todos los pares!")
-                root.after(2000, lambda: [root.destroy(), mostrar_resultados(False,time_left)])
+                root.after(500, lambda: [root.destroy(), mostrar_resultados(False,time_left)])
 
 
         else:
@@ -76,7 +76,7 @@ def play_game():
             contadorr.config(text=f"Tiempo restante: {time_left}s")
             root.after(1000, update_timer)
         else:
-            root.after(2000, lambda: [root.destroy(), mostrar_resultados(True,time_left)])
+            root.after(500, lambda: [root.destroy(), mostrar_resultados(True,time_left)])
 
             print("¡Tiempo agotado!")
             disable_all_buttons()  # Llamada a una función para deshabilitar botones

@@ -25,6 +25,7 @@ def reproducir_cancion(indice):
     # Cargar y reproducir la canción del índice actual
     pygame.mixer.music.load(playlist[indice])
     pygame.mixer.music.play()
+    pygame.mixer.play(loops=-1)
 
     # Configurar un evento que ocurra cuando la canción termine
     pygame.mixer.music.set_endevent(pygame.USEREVENT)

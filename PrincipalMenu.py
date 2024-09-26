@@ -30,7 +30,7 @@ def Crear_ventana_menu():
     # _________________________________________________________
 
     etiqueta = tkinter.Label(inner_frame, text="MEMORANDUM", font=("", 24))
-    etiqueta2 = tkinter.Button(inner_frame, text="Start", width=15, height=1, bg="#E0E0C8", fg="black",relief="groove",border=2,command=lambda: abrir_ventana(ventanam))
+    etiqueta2 = tkinter.Button(inner_frame, text="Iniciar Juego", width=15, height=1, bg="#E0E0C8", fg="black",relief="groove",border=2,command=lambda: abrir_ventana(ventanam))
 
     etiqueta2.pack(side=tkinter.BOTTOM, pady=15)
     etiqueta.pack(side=tkinter.BOTTOM)

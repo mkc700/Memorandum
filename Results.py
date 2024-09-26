@@ -32,16 +32,16 @@ def mostrar_resultados(resultado,time):
     #evaluar tiempo
 
     print("tu tiempo fue: "+str(time))
-    if time > 90:
+    if time > 80:
         score_r = score_r + 2000
         comment = "Apoco si mi todo tieso?"
-    if time > 80:
+    if time > 60:
         score_r = score_r + 1000
         comment= "Eres un tryhard!"
-    if time > 50 and time < 75:
+    if time > 40 and time < 75:
         score_r = score_r + 800
         comment = "Nada mal mi amigo :)"
-    if time > 30 and time < 50:
+    if time > 20 and time < 50:
         score_r = score_r + 100
         comment = "De verdad se te dificulto tanto?"
 
@@ -60,7 +60,7 @@ def mostrar_resultados(resultado,time):
     etiqueta2.pack(side=tkinter.BOTTOM)
     etiqueta.pack(side=tkinter.BOTTOM)
     etiqueta3.pack(side=tkinter.BOTTOM)
-    ventana.after(8000, ventana.destroy)
+    ventana.after(4000, ventana.destroy)
 
     # ejecutar ventana
     ventana.mainloop()
