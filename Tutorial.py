@@ -15,8 +15,8 @@ def Crear_ventana_tutorial():
 
 
     etiqueta = tkinter.Label(ventanat, text="Tutorial", font=("", 24))
-    etiqueta2 = tkinter.Button(ventanat, text="siguiente instruccion", width=18, height=2, bg="#E0E0C8", fg="black",relief="groove",border=2, command=lambda: contar_clics(ventanat))
-    label = tkinter.Label(ventanat, text="Este es un juego de cartas!",
+    etiqueta2 = tkinter.Button(ventanat, text="Siguiente instrucción", width=18, height=2, bg="#E0E0C8", fg="black",relief="groove",border=2, command=lambda: contar_clics(ventanat))
+    label = tkinter.Label(ventanat, text="¡Este es un juego de cartas!",
                           font=("Arial", 16))
 
 
@@ -34,16 +34,16 @@ def contar_clics(ventana):
     contador += 1
     print(contador)
     if contador == 1:
-        label = tkinter.Label(ventana, text="haz clic en dos recuadros y si no son pares espera a que se oculten", font=("Arial", 16))
+        label = tkinter.Label(ventana, text="Haz clic en dos recuadros para descubrir las cartas.", font=("Arial", 16))
         label.pack(pady=20)
     if contador == 2:
-        label = tkinter.Label(ventana, text="despues busca otro par y sigue intentando hasta que encuentres pares", font=("Arial", 16))
+        label = tkinter.Label(ventana, text="Si las cartas son iguales, ¡las has emparejado!", font=("Arial", 16))
         label.pack(pady=20)
     if contador == 3:
-        label = tkinter.Label(ventana, text="tienes que encontrarlos todos antes de que se acabe el tiempo", font=("Arial", 16))
+        label = tkinter.Label(ventana, text="Busca todos los pares antes de que se agote el tiempo.", font=("Arial", 16))
         label.pack(pady=20)
     if contador == 4:
-        label = tkinter.Label(ventana, text="buena suerte!", font=("Arial", 16))
+        label = tkinter.Label(ventana, text="¡Buena suerte!", font=("Arial", 16))
         label.pack(pady=20)
         etiqueta2.config(text="Iniciar juego")
 

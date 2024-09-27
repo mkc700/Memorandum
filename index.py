@@ -1,6 +1,5 @@
 
 from WelcomWindow import iniciar_ventana
-
 import pygame
 # Ejecutar el script 'mi_script.py'
 
